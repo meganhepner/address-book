@@ -4,12 +4,12 @@
 
 ## Description
 
-Insert description here
+Address book site created as an exercise to learn about objects, constructors, prototypes, event delegation and bubbling.
 
 ## Setup/Installation Requirements
 
 * Clone this repository 
-* Browse to the ` ` folder
+* Browse to the `address-book` folder
 * Open `index.html` in a browser of your choice
 
 ## Technologies Used
