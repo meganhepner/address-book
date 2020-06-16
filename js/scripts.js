@@ -96,6 +96,10 @@ function attachContactListeners() {
   });
 };
 
+function removeAddressGroups() {
+  $(".address-group").not(":first").remove();
+}
+
 $(document).ready(function() {
   attachContactListeners();
   $("form#new-contact").submit(function(event) {
@@ -120,12 +124,14 @@ $(document).ready(function() {
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
+    removeAddressGroups();
     let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputAddress);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   });
   $("#address-button").click(function () {
     $(".address-group").last().clone().insertAfter($(".address-group").last());
+    $(".address-group").last().addClass("delete")
     $("input.new-address").last().val("");
     $("input.new-address-type").last().val("");
   });
