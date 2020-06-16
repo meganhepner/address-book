@@ -126,5 +126,7 @@ $(document).ready(function() {
   });
   $("#address-button").click(function () {
     $(".address-group").last().clone().insertAfter($(".address-group").last());
+    $("input.new-address").last().val("");
+    $("input.new-address-type").last().val("");
   });
 })
