@@ -48,6 +48,15 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+// Business Logic for Address -------------
+function Address(type, address) {
+  this[type] = address
+}
+
+Address.prototype.addAddress = function(type, address) {
+  this[type] = address
+}
+
 // User Interface Logic ---------
 let addressBook = new AddressBook();
 
@@ -89,6 +98,15 @@ $(document).ready(function() {
     const inputtedFirstName = $("input#new-first-name").val();
     const inputtedLastName = $("input#new-last-name").val();
     const inputtedPhoneNumber = $("input#new-phone-number").val();
+    const inputtedAddressType = [];
+    const inputtedAddress = [];
+    $("input.new-address-type").each(function () {
+      inputtedAddressType.push($("input.new-address-type").val());
+    });
+    $("input.new-address-type").each(function () {
+      inputtedAddress.push($("input.new-address").val());
+    });
+
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
@@ -96,4 +114,7 @@ $(document).ready(function() {
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   })
+  $("#address-button").click(function () {
+    $(".address-group").last().clone().insertAfter($(".address-group").last());
+  });
 })
